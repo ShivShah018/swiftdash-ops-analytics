@@ -1,0 +1,4 @@
+model {
+    culture: "en-US"
+    defaultPowerBIDataSourceVersion: powerBI_V3
+}

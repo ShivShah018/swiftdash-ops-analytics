@@ -1,0 +1,21 @@
+table customers {
+    column customer_id dataType: string { isKey: true }
+    column name dataType: string
+    column age dataType: int64
+    column gender dataType: string
+    column city dataType: string
+    column latitude dataType: double
+    column longitude dataType: double
+    column phone dataType: int64
+    column email dataType: string
+    column signup_date dataType: string
+    column is_active dataType: boolean { trueValue: "True", falseValue: "False" }
+
+    partition 'Partition' mode: import { source: #"customers" }
+
+    measure 'Unique Customers' := DISTINCTCOUNT(orders[customer_id])
+    measure 'Repeat Customer Rate' := VAR CustomersWithOrders = SUMMARIZE(orders, orders[customer_id])
+VAR RepeatCustomers = FILTER(CustomersWithOrders, CALCULATE(COUNTROWS(orders), orders[order_status] = "Delivered") > 1)
+RETURN DIVIDE(COUNTROWS(RepeatCustomers), COUNTROWS(CustomersWithOrders), 0)
+    measure 'Avg Customer Lifetime Value' := DIVIDE([Total Revenue], [Unique Customers], 0)
+}

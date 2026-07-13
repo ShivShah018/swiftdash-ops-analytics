@@ -1,0 +1,17 @@
+table 'Calendar' {
+    column Date dataType: dateTime {
+        isKey: true
+        formatString: "yyyy-MM-dd"
+    }
+    column Year dataType: int64
+    column Quarter dataType: string
+    column Month dataType: string
+    column MonthNo dataType: int64
+    column YearMonth dataType: string
+    column Weekday dataType: string
+    column IsWeekend dataType: boolean { trueValue: "True", falseValue: "False" }
+
+    partition 'Calendar' mode: import {
+        source: #"Calendar"
+    }
+}

@@ -1,0 +1,17 @@
+table drivers {
+    column driver_id dataType: string { isKey: true }
+    column name dataType: string
+    column age dataType: int64
+    column city dataType: string
+    column latitude dataType: double
+    column longitude dataType: double
+    column vehicle_type dataType: string
+    column rating dataType: double
+    column join_date dataType: string
+    column is_active dataType: boolean { trueValue: "True", falseValue: "False" }
+
+    partition 'Partition' mode: import { source: #"drivers" }
+
+    measure 'Active Drivers' := CALCULATE(COUNTROWS(drivers), drivers[is_active] = TRUE)
+    measure 'Orders Per Driver' := DIVIDE([Total Delivered Orders], [Active Drivers], 0)
+}

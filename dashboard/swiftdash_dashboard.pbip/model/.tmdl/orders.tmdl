@@ -1,0 +1,41 @@
+table orders {
+    column order_id dataType: string { isKey: true }
+    column customer_id dataType: string
+    column restaurant_id dataType: string
+    column driver_id dataType: string
+    column order_datetime dataType: string
+    column order_date dataType: string
+    column order_hour dataType: int64
+    column weekday dataType: string
+    column is_weekend dataType: boolean { trueValue: "True", falseValue: "False" }
+    column order_amount dataType: double
+    column delivery_fee dataType: double
+    column discount dataType: double
+    column tax dataType: double
+    column platform_fee dataType: double
+    column surge_multiplier dataType: double
+    column total_amount dataType: double
+    column payment_method dataType: string
+    column order_status dataType: string
+    column customer_city dataType: string
+    column restaurant_city dataType: string
+    column customer_rating dataType: double
+
+    partition 'Partition' mode: import { source: #"orders" }
+
+    measure 'Total Revenue' := CALCULATE(SUM(orders[total_amount]), orders[order_status] = "Delivered")
+    measure 'Total Orders' := CALCULATE(COUNTROWS(orders), orders[order_status] = "Delivered")
+    measure 'Avg Order Value' := DIVIDE([Total Revenue], [Total Orders])
+    measure 'Total Delivered Orders' := CALCULATE(COUNTROWS(orders), orders[order_status] = "Delivered")
+    measure 'Cancellation Rate' := VAR AllOrders = COUNTROWS(orders) VAR Cancelled = CALCULATE(COUNTROWS(orders), orders[order_status] = "Cancelled") RETURN DIVIDE(Cancelled, AllOrders, 0)
+    measure 'Avg Customer Rating' := CALCULATE(AVERAGE(orders[customer_rating]), orders[customer_rating] > 0)
+    measure 'Total Discounts Given' := SUM(orders[discount])
+    measure 'Unique Customers' := DISTINCTCOUNT(orders[customer_id])
+    measure 'Repeat Customer Rate' := VAR CustomersWithOrders = SUMMARIZE(orders, orders[customer_id])
+VAR RepeatCustomers = FILTER(CustomersWithOrders, CALCULATE(COUNTROWS(orders), orders[order_status] = "Delivered") > 1)
+RETURN DIVIDE(COUNTROWS(RepeatCustomers), COUNTROWS(CustomersWithOrders), 0)
+    measure 'Peak Hour Orders' := MAXX(VALUES(orders[order_hour]),
+    CALCULATE(COUNTROWS(orders), orders[order_status] = "Delivered"))
+    measure 'Orders Per Driver' := DIVIDE([Total Delivered Orders], [Active Drivers], 0)
+    measure 'Surge Revenue Premium' := SUM(orders[total_amount]) - SUMX(orders, orders[total_amount] / orders[surge_multiplier])
+}
