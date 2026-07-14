@@ -64,13 +64,14 @@ swiftdash-ops-analytics/
 │
 ├── tests/
 │   ├── test_cleaning.py           # 20 data cleaning tests
-│   ├── test_features.py           # 4 feature engineering tests
+│   ├── test_features.py           # 6 feature engineering tests
 │   └── test_pipeline_integrity.py # 16 pipeline integrity tests
 │
 ├── reports/
 │   ├── business_recommendations.md
 │   ├── power_bi_dashboard_guide.md
 │   ├── interview_questions.md
+│   ├── presentation_deck_outline.md
 │   └── resume_bullets.md
 │
 └── screenshots/                   # EDA & dashboard exports
@@ -126,7 +127,7 @@ python run_pipeline.py
 | Database | MySQL 8.0 |
 | SQL techniques | CTEs, window functions (`LAG`, `NTILE`, `ROW_NUMBER`), cohort analysis, self-joins, conditional aggregation |
 | Dashboard | Power BI (DAX measures, drill-through, time intelligence, slicers) |
-| Testing | pytest (40 tests) |
+| Testing | pytest (42 tests) |
 | Logging | Python `logging` module → `logs/pipeline.log` |
 | Version control | Git, GitHub |
 
@@ -248,6 +249,10 @@ Refer to the [dashboard build guide](reports/power_bi_dashboard_guide.md) and [D
 |:---:|:---:|:---:|
 | ![Delivery](screenshots/delivery_performance.png) | ![Patterns](screenshots/time_patterns.png) | ![Cities](screenshots/city_revenue.png) |
 
+| KPI Summary |
+|:---:|
+| ![KPI Summary](screenshots/kpi_summary.png) |
+
 ---
 
 ## Key Insights
@@ -358,6 +363,7 @@ Open Power BI Desktop → Get Data → CSV → select files from `data/cleaned/`
 - [Business Recommendations](reports/business_recommendations.md)
 - [Power BI Dashboard Guide](reports/power_bi_dashboard_guide.md)
 - [Interview Questions](reports/interview_questions.md) — 22 likely interview Q&As
+- [Presentation Deck Outline](reports/presentation_deck_outline.md)
 - [Resume Bullet Points](reports/resume_bullets.md)
 - [Development Roadmap](DEVELOPMENT_ROADMAP.md)
 
