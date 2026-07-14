@@ -26,17 +26,16 @@ logger = logging.getLogger("build_powerbi")
 
 # ── Paths ──────────────────────────────────────────────────────────────────
 PBI_PROJ = PROJECT_ROOT / "dashboard" / "swiftdash_dashboard.pbip"
-PBI_MODEL = PBI_PROJ / "model"
+PBI_MODEL = PBI_PROJ / "Model"
 PBI_MASHUP = PBI_PROJ / "mashup"
 PBI_REPORT = PBI_PROJ / "report"
-PBI_TMDL = PBI_MODEL / ".tmdl"
 OUTPUT_PBIT = PROJECT_ROOT / "dashboard" / "swiftdash_dashboard.pbit"
 
 
 def clean():
     if PBI_PROJ.exists():
         shutil.rmtree(PBI_PROJ)
-    for d in [PBI_TMDL, PBI_MASHUP, PBI_REPORT]:
+    for d in [PBI_MODEL, PBI_MASHUP, PBI_REPORT]:
         d.mkdir(parents=True, exist_ok=True)
 
 
@@ -47,13 +46,13 @@ def write_settings():
     settings = {
         "$schema": "https://pbi.tools/schema/settings.json",
         "version": "1.0",
-        "modelSerialization": "Tmdl",
+        "modelSerialization": "Raw",
         "mashupSerialization": "Default",
     }
     (PBI_PROJ / ".pbixproj.json").write_text(json.dumps(settings, indent=2))
 
     # Boilerplate PBIX part files required by pbi-tools compile
-    (PBI_PROJ / "Version.txt").write_text("3.0")
+    (PBI_PROJ / "Version.txt").write_text("2.155.756.0")
     (PBI_PROJ / "ReportMetadata.json").write_text(
         '{"ReportMetadata":{"ReportId":"00000000-0000-0000-0000-000000000000",'
         '"PBIFileVersion":"2.141","PBIFileProductVersion":"2.141.1286.0"}}'
@@ -72,21 +71,14 @@ def write_settings():
         "</Types>"
     )
 
-    for sub, content in [
-        ("Settings/settings.json", '{"userScope":[],"userScopeS":[]}'),
-        ("Metadata/Metadata.json", '{"DaxOption":0}'),
-        ("Connections/connections.json", "[]"),
-        ("DiagramState/state.json", "{}"),
-        ("DiagramLayout/layout.json", '{"DiagramLayout":{"Schema":{"Tables":[],"Relationships":[],"DisplayOptions":{}}}}'),
+    for name, content in [
+        ("Settings.json", '{"userScope":[],"userScopeS":[]}'),
+        ("Metadata.json", '{"DaxOption":0}'),
+        ("Connections.json", "{}"),
+        ("DiagramViewState.json", "{}"),
+        ("DiagramLayout.json", '{"DiagramLayout":{"Schema":{"Tables":[],"Relationships":[],"DisplayOptions":{}}}}'),
     ]:
-        p = PBI_PROJ / sub
-        p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(content)
-
-    # SecurityBindings — empty binary file
-    sb_dir = PBI_PROJ / "SecurityBindings"
-    sb_dir.mkdir(parents=True, exist_ok=True)
-    (sb_dir / "bindings").write_text("")
+        (PBI_PROJ / name).write_text(content)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -120,13 +112,31 @@ MASHUP_TEMPLATE = '''<?xml version="1.0" encoding="utf-8"?>
   <Default Extension="xml" ContentType="application/xml" />
 </Types>'''
 
+CALENDAR_M = """let
+    StartDate = #date(2022, 1, 1),
+    EndDate = #date(2025, 6, 30),
+    Dates = List.Dates(StartDate, Duration.Days(EndDate - StartDate) + 1, #duration(1, 0, 0, 0)),
+    ToTable = Table.FromList(Dates, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    Renamed = Table.RenameColumns(ToTable, {{"Column1", "Date"}}),
+    #"Changed Type" = Table.TransformColumnTypes(Renamed, {{"Date", type date}}),
+    #"Added Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([Date]), Int64.Type),
+    #"Added Quarter" = Table.AddColumn(#"Added Year", "Quarter", each "Q" & Text.From(Date.QuarterOfYear([Date])), type text),
+    #"Added Month" = Table.AddColumn(#"Added Quarter", "Month", each Date.MonthName([Date]), type text),
+    #"Added MonthNo" = Table.AddColumn(#"Added Month", "MonthNo", each Date.Month([Date]), Int64.Type),
+    #"Added YearMonth" = Table.AddColumn(#"Added MonthNo", "YearMonth", each Text.From(Date.Year([Date])) & "-" & Text.PadStart(Text.From(Date.Month([Date])), 2, "0"), type text),
+    #"Added Weekday" = Table.AddColumn(#"Added YearMonth", "Weekday", each Date.DayOfWeekName([Date]), type text),
+    #"Added IsWeekend" = Table.AddColumn(#"Added Weekday", "IsWeekend", each Date.DayOfWeek([Date], Day.Monday) >= 5, type logical)
+in
+    #"Added IsWeekend"""
+
 def write_mashup():
     (PBI_MASHUP / "[Content_Types].xml").write_text(MASHUP_TEMPLATE)
     partitions_dir = PBI_MASHUP / "partitions"
     partitions_dir.mkdir(exist_ok=True)
     for name in CSV_TABLES:
         (partitions_dir / f"{name}.m").write_text(m_query(name))
-    logger.info("Mashup: wrote %d M partition queries", len(CSV_TABLES))
+    (partitions_dir / "Calendar.m").write_text(CALENDAR_M)
+    logger.info("Mashup: wrote %d M partition queries", len(CSV_TABLES) + 1)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -224,11 +234,9 @@ RELATIONSHIPS = [
 ]
 
 DAX_MEASURES = {
-    # Core KPIs
     "Total Revenue": 'CALCULATE(SUM(orders[total_amount]), orders[order_status] = "Delivered")',
     "Total Orders": 'CALCULATE(COUNTROWS(orders), orders[order_status] = "Delivered")',
     "Avg Order Value": "DIVIDE([Total Revenue], [Total Orders])",
-    "Total Delivered Orders": 'CALCULATE(COUNTROWS(orders), orders[order_status] = "Delivered")',
     "Cancellation Rate": "VAR AllOrders = COUNTROWS(orders) VAR Cancelled = CALCULATE(COUNTROWS(orders), orders[order_status] = \"Cancelled\") RETURN DIVIDE(Cancelled, AllOrders, 0)",
     "OnTime Delivery Rate": "VAR TotalDeliveries = COUNTROWS(delivery_logs) VAR OnTime = COUNTROWS(FILTER(delivery_logs, delivery_logs[is_on_time] = TRUE)) RETURN DIVIDE(OnTime, TotalDeliveries, 0)",
     "Avg Customer Rating": "CALCULATE(AVERAGE(orders[customer_rating]), orders[customer_rating] > 0)",
@@ -236,116 +244,85 @@ DAX_MEASURES = {
     "Active Restaurants": 'CALCULATE(COUNTROWS(restaurants), restaurants[is_active] = TRUE)',
     "Active Drivers": 'CALCULATE(COUNTROWS(drivers), drivers[is_active] = TRUE)',
     "Unique Customers": "DISTINCTCOUNT(orders[customer_id])",
-    # Time Intelligence
     "Revenue MoM Growth": "VAR CurrentMonth = [Total Revenue] VAR PrevMonth = CALCULATE([Total Revenue], PREVIOUSMONTH('Calendar'[Date])) RETURN DIVIDE(CurrentMonth - PrevMonth, PrevMonth, 0)",
     "Revenue YoY Growth": "VAR CurrentPeriod = [Total Revenue] VAR PrevPeriod = CALCULATE([Total Revenue], SAMEPERIODLASTYEAR('Calendar'[Date])) RETURN DIVIDE(CurrentPeriod - PrevPeriod, PrevPeriod, 0)",
     "Revenue Rolling30D": "CALCULATE([Total Revenue], DATESINPERIOD('Calendar'[Date], MAX('Calendar'[Date]), -30, DAY))",
     "Revenue MTD": "TOTALMTD([Total Revenue], 'Calendar'[Date])",
     "Revenue QTD": "TOTALQTD([Total Revenue], 'Calendar'[Date])",
     "Revenue YTD": "TOTALYTD([Total Revenue], 'Calendar'[Date])",
-    # Customer
     "Repeat Customer Rate": """VAR CustomersWithOrders = SUMMARIZE(orders, orders[customer_id])
 VAR RepeatCustomers = FILTER(CustomersWithOrders, CALCULATE(COUNTROWS(orders), orders[order_status] = "Delivered") > 1)
 RETURN DIVIDE(COUNTROWS(RepeatCustomers), COUNTROWS(CustomersWithOrders), 0)""",
     "Avg Customer Lifetime Value": "DIVIDE([Total Revenue], [Unique Customers], 0)",
     "Customer Segment Count": "DISTINCTCOUNT(customer_features[customer_segment])",
-    # Operations
     "Avg Delivery Time Mins": "AVERAGE(delivery_logs[travel_time_mins])",
     "Avg Delivery Distance KM": "AVERAGE(delivery_logs[distance_km])",
     "Peak Hour Orders": """MAXX(VALUES(orders[order_hour]),
     CALCULATE(COUNTROWS(orders), orders[order_status] = "Delivered"))""",
     "Orders Per Driver": "DIVIDE([Total Delivered Orders], [Active Drivers], 0)",
-    # Revenue Mix
     "Surge Revenue Premium": "SUM(orders[total_amount]) - SUMX(orders, orders[total_amount] / orders[surge_multiplier])",
 }
 
-def tmdl_type(dtype):
-    return {"string": "string", "int64": "int64", "double": "double", "boolean": "boolean"}.get(dtype, "string")
+def tmsl_type(dtype):
+    return {"string": "string", "int64": "int64", "double": "double", "boolean": "bool"}[dtype]
 
-def generate_table_tmdl(name):
-    lines = [f"table {name} {{"]
-    cols = COLUMN_TYPES[name]
-    pk = KEYS[name]
-    for cname, dtype in cols.items():
-        t = tmdl_type(dtype)
-        is_key = "true" if cname == pk else "false"
-        if cname == pk:
-            lines.append(f"    column {cname} dataType: {t} {{ isKey: true }}")
-        elif dtype == "boolean":
-            lines.append(f"    column {cname} dataType: {t} {{ trueValue: \"True\", falseValue: \"False\" }}")
-        else:
-            lines.append(f"    column {cname} dataType: {t}")
-    lines.append("")
-    # Partition referencing M query
-    lines.append(f"    partition 'Partition' mode: import {{ source: #\"{name}\" }}")
-    lines.append("")
-    # Add DAX measures that reference this table
+def measure_belongs_to_table(mname, tname):
+    if tname in mname.lower():
+        return True
+    if tname == "daily_metrics":
+        return any(kw in mname.lower() for kw in ["revenue rolling", "revenue mtd", "revenue qtd", "revenue ytd", "rolling30", "peak hour", "orders per driver"])
+    if tname == "orders":
+        return any(tok in mname.lower() for tok in ["revenue", "order", "aov", "discount", "cancellation", "customer rating", "surge", "repeat customer", "clv", "unique customers", "total discounts"])
+    return False
+
+def build_tmsl_model():
+    tables = []
+    for tname, cols in COLUMN_TYPES.items():
+        columns = []
+        pk = KEYS[tname]
+        for cname, dtype in cols.items():
+            col = {"name": cname, "dataType": tmsl_type(dtype)}
+            if cname == pk:
+                col["isKey"] = True
+            columns.append(col)
+        measures = []
+        for mname, expr in DAX_MEASURES.items():
+            if measure_belongs_to_table(mname, tname):
+                measures.append({"name": mname, "expression": expr})
+        entry = {"name": tname, "columns": columns}
+        if measures:
+            entry["measures"] = measures
+        entry["partitions"] = [{"name": "Partition", "mode": "import", "source": {"type": "m", "expression": "let\n    Source = #\"" + tname + "\"\nin\n    Source"}}]
+        tables.append(entry)
+
+    cal_cols = [
+        {"name": "Date", "dataType": "dateTime", "isKey": True, "formatString": "yyyy-MM-dd"},
+        {"name": "Year", "dataType": "int64"},
+        {"name": "Quarter", "dataType": "string"},
+        {"name": "Month", "dataType": "string"},
+        {"name": "MonthNo", "dataType": "int64"},
+        {"name": "YearMonth", "dataType": "string"},
+        {"name": "Weekday", "dataType": "string"},
+        {"name": "IsWeekend", "dataType": "bool"},
+    ]
+    cal_measures = []
     for mname, expr in DAX_MEASURES.items():
-        table_ref = mname.split("_")[0].lower() if "_" in mname else ""
-        # Simple heuristic: measure references this table if its name appears in the expression
-        if name in mname.lower() or any(tok in expr.lower() for tok in [name, name + "["]):
-            lines.append(f"    measure '{mname}' := {expr}")
-    lines.append("}")
-    return "\n".join(lines)
+        if any(kw in mname.lower() for kw in ["mom", "yoy", "rolling", "mtd", "qtd", "ytd"]):
+            cal_measures.append({"name": mname, "expression": expr})
+    tables.append({"name": "Calendar", "columns": cal_cols, "measures": cal_measures,
+        "partitions": [{"name": "Calendar", "mode": "import", "source": {"type": "m", "expression": "let\n    Source = #\"Calendar\"\nin\n    Source"}}]})
+
+    relationships = []
+    for rid, ft, fc, tt, tc, direction in RELATIONSHIPS:
+        relationships.append({"name": rid, "fromTable": ft, "fromColumn": fc, "toTable": tt, "toColumn": tc, "crossFilteringBehavior": "oneDirection"})
+    relationships.append({"name": "orders_date", "fromTable": "orders", "fromColumn": "order_date", "toTable": "Calendar", "toColumn": "Date", "crossFilteringBehavior": "oneDirection"})
+
+    return {"model": {"culture": "en-US", "defaultPowerBIDataSourceVersion": "powerBI_V3", "tables": tables, "relationships": relationships}}
 
 def write_model():
-    # Write table TMDL files
-    for tname in COLUMN_TYPES:
-        tmdl = generate_table_tmdl(tname)
-        (PBI_TMDL / f"{tname}.tmdl").write_text(tmdl)
-    # Write Calendar table
-    cal_tmdl = """table 'Calendar' {
-    column Date dataType: dateTime {
-        isKey: true
-        formatString: "yyyy-MM-dd"
-    }
-    column Year dataType: int64
-    column Quarter dataType: string
-    column Month dataType: string
-    column MonthNo dataType: int64
-    column YearMonth dataType: string
-    column Weekday dataType: string
-    column IsWeekend dataType: boolean { trueValue: "True", falseValue: "False" }
-
-    partition 'Calendar' mode: import {
-        source: #"Calendar"
-    }
-}"""
-    (PBI_TMDL / "Calendar.tmdl").write_text(cal_tmdl)
-    # Write M query for Calendar
-    cal_m = """let
-    StartDate = #date(2022, 1, 1),
-    EndDate = #date(2025, 6, 30),
-    Dates = List.Dates(StartDate, Duration.Days(EndDate - StartDate) + 1, #duration(1, 0, 0, 0)),
-    ToTable = Table.FromList(Dates, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
-    Renamed = Table.RenameColumns(ToTable, {{"Column1", "Date"}}),
-    #"Changed Type" = Table.TransformColumnTypes(Renamed, {{"Date", type date}}),
-    #"Added Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([Date]), Int64.Type),
-    #"Added Quarter" = Table.AddColumn(#"Added Year", "Quarter", each "Q" & Text.From(Date.QuarterOfYear([Date])), type text),
-    #"Added Month" = Table.AddColumn(#"Added Quarter", "Month", each Date.MonthName([Date]), type text),
-    #"Added MonthNo" = Table.AddColumn(#"Added Month", "MonthNo", each Date.Month([Date]), Int64.Type),
-    #"Added YearMonth" = Table.AddColumn(#"Added MonthNo", "YearMonth", each Text.From(Date.Year([Date])) & "-" & Text.PadStart(Text.From(Date.Month([Date])), 2, "0"), type text),
-    #"Added Weekday" = Table.AddColumn(#"Added YearMonth", "Weekday", each Date.DayOfWeekName([Date]), type text),
-    #"Added IsWeekend" = Table.AddColumn(#"Added Weekday", "IsWeekend", each Date.DayOfWeek([Date], Day.Monday) >= 5, type logical)
-in
-    #"Added IsWeekend"""
-    partitions_dir = PBI_MASHUP / "partitions"
-    (partitions_dir / "Calendar.m").write_text(cal_m)
-    # Write relationships
-    rel_lines = []
-    for rel_id, from_tab, from_col, to_tab, to_col, direction in RELATIONSHIPS:
-        cf = "crossFilteringBehavior: oneDirection;" if direction == "oneDirection" else ""
-        rel_lines.append(f"relationship '{rel_id}' : {from_tab}[{from_col}] -> {to_tab}[{to_col}] {{{cf}}}")
-    # Add Calendar relationships
-    rel_lines.append("relationship 'orders_date' : orders[order_date] -> 'Calendar'[Date] { crossFilteringBehavior: oneDirection; }")
-    (PBI_TMDL / "relationships.tmdl").write_text("\n".join(rel_lines))
-    # Write model settings
-    model_tmdl = """model {
-    culture: "en-US"
-    defaultPowerBIDataSourceVersion: powerBI_V3
-}"""
-    (PBI_TMDL / "model.tmdl").write_text(model_tmdl)
-    logger.info("Model: wrote %d table TMDL + Calendar + relationships", len(COLUMN_TYPES))
+    model = build_tmsl_model()
+    (PBI_MODEL / "database.json").write_text(json.dumps(model, indent=2))
+    logger.info("Model: wrote %d-table TMSL model (%d KB)", len(model["model"]["tables"]), len(json.dumps(model)) // 1024)
 
 
 # ═══════════════════════════════════════════════════════════════════════════

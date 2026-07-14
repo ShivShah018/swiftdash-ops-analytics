@@ -202,7 +202,7 @@ The dashboard is available as a **PbixProj folder** ([open-source format](https:
 
 ### Quick start (PbixProj → .pbit → .pbix)
 
-**Option A — pbi-tools** (requires Power BI Desktop installed):
+**Option A — pbi-tools** (requires Power BI Desktop v2.155.x installed):
 
 ```bash
 python scripts/build_powerbi.py                           # generate PbixProj
@@ -218,17 +218,19 @@ pbi-tools compile dashboard/swiftdash_dashboard.pbip \
 4. All 5 report pages are pre‑laid out; use the Fields pane to bind visuals
 5. File → Save As → `.pbix`
 
+> **Note:** The PbixProj uses `"modelSerialization": "Raw"` (TMSL JSON). The model is stored as a single `Model/database.json` file. This avoids TMDL parser incompatibilities between pbi-tools and Power BI Desktop v2.155.
+
 ### What's included
 
 | Artifact | Description |
 |----------|-------------|
-| `dashboard/swiftdash_dashboard.pbip/` | PbixProj with TMDL model (9 tables + Calendar), M queries, report layout |
+| `dashboard/swiftdash_dashboard.pbip/` | PbixProj with TMSL model (10 tables), M queries, report layout |
 | `dashboard/swiftdash_measures.dax` | All 25+ DAX measures as reference text |
 | `dashboard/swiftdash_dashboard.pbit` | Compiled Power BI Template (open → refresh → save as .pbix) |
 
 ### Data model
 
-TMDL definitions under `dashboard/swiftdash_dashboard.pbip/model/.tmdl/`:
+TMSL definition at `dashboard/swiftdash_dashboard.pbip/Model/database.json`:
 
 - **9 fact/dimension tables**: customers, restaurants, drivers, orders, order_items, delivery_logs, customer_features, restaurant_features, daily_metrics
 - **Calendar table**: date, year, quarter, month, weekday, is_weekend

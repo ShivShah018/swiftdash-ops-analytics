@@ -1,9 +1,0 @@
-relationship 'orders_customer' : orders[customer_id] -> customers[customer_id] {crossFilteringBehavior: oneDirection;}
-relationship 'orders_restaurant' : orders[restaurant_id] -> restaurants[restaurant_id] {crossFilteringBehavior: oneDirection;}
-relationship 'orders_driver' : orders[driver_id] -> drivers[driver_id] {crossFilteringBehavior: oneDirection;}
-relationship 'order_items_order' : order_items[order_id] -> orders[order_id] {crossFilteringBehavior: oneDirection;}
-relationship 'delivery_logs_order' : delivery_logs[order_id] -> orders[order_id] {crossFilteringBehavior: oneDirection;}
-relationship 'delivery_logs_driver' : delivery_logs[driver_id] -> drivers[driver_id] {crossFilteringBehavior: oneDirection;}
-relationship 'customer_features_customer' : customer_features[customer_id] -> customers[customer_id] {crossFilteringBehavior: oneDirection;}
-relationship 'restaurant_features_restaurant' : restaurant_features[restaurant_id] -> restaurants[restaurant_id] {crossFilteringBehavior: oneDirection;}
-relationship 'orders_date' : orders[order_date] -> 'Calendar'[Date] { crossFilteringBehavior: oneDirection; }

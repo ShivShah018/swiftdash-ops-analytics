@@ -31,6 +31,10 @@ env/
 Thumbs.db
 .DS_Store
 
+# Power BI compiled output
+*.pbit
+*.pbix
+
 # Presentation
 *.pptx
 
