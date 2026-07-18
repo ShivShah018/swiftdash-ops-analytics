@@ -1,11 +1,41 @@
 # SwiftDash – Universal CSV Analytics Platform 📊
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python)](https://python.org)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B?logo=streamlit)](https://streamlit.io)
-[![Plotly](https://img.shields.io/badge/Plotly-Dynamic_Charts-3f4f75?logo=plotly)](https://plotly.com)
-[![Testing](https://img.shields.io/badge/Playwright-Automated_QA-2EAD33?logo=playwright)](https://playwright.dev)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit)](https://swiftdash-ops-analytics.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python)](https://python.org)
+[![Pandas](https://img.shields.io/badge/Pandas-Data_Engine-150458?style=for-the-badge&logo=pandas)](https://pandas.pydata.org)
+[![Plotly](https://img.shields.io/badge/Plotly-Dynamic_Charts-3f4f75?style=for-the-badge&logo=plotly)](https://plotly.com)
+[![Testing](https://img.shields.io/badge/Playwright-Automated_QA-2EAD33?style=for-the-badge&logo=playwright)](https://playwright.dev)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
 A Python data analytics platform that ingests, profiles, and visualizes uploaded CSV datasets without hardcoded column dependencies.
+
+---
+
+## ⚡ Quick Links
+
+- **Live Demo:** [https://swiftdash-ops-analytics.streamlit.app/](https://swiftdash-ops-analytics.streamlit.app/)
+- **GitHub Repository:** [https://github.com/ShivShah018/swiftdash-ops-analytics](https://github.com/ShivShah018/swiftdash-ops-analytics)
+
+---
+
+## 🌐 Live Deployment
+
+The application is publicly deployed on **Streamlit Community Cloud** and can be tested without any local installation.
+
+**Access the application here:** [https://swiftdash-ops-analytics.streamlit.app/](https://swiftdash-ops-analytics.streamlit.app/)
+
+Users can:
+- **Upload any CSV** to instantly generate a custom dashboard
+- **Explore interactive dashboards** built dynamically from their data
+- **Analyze data quality** including outliers and missing value heatmaps
+- **Filter datasets** using smart UI controls generated based on column types
+- **View dynamic visualizations** selected appropriately for the data distribution
+
+---
+
+## 📸 Screenshots
+
+*(Screenshots to be added here)*
 
 ---
 
