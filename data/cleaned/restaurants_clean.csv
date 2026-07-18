@@ -1,0 +1,251 @@
+restaurant_id,name,cuisine_type,city,latitude,longitude,rating,avg_cost_for_two,join_date,is_active,preparation_time_mins
+REST_001,Wang-Jacobs Cafe,Chinese,Bhopal,23.246033,77.411447,1.8,890,2020-02-25,True,22
+REST_002,"Buck, Lee and Ruiz Eatery",Korean,Chennai,13.095759,80.271853,1.3,938,2020-04-08,True,17
+REST_003,Melendez Ltd Bites,Bakery,Coimbatore,11.021556,76.942716,1.2,393,2021-11-08,True,16
+REST_004,Martin Ltd Cafe,Italian,Chennai,13.075331,80.285092,1.4,620,2020-06-06,True,16
+REST_005,Mcgrath-Andrews Foods,Healthy,Bhopal,23.249119,77.403435,2.0,972,2024-03-02,True,35
+REST_006,"Hall, Reid and Kirby Bites",Bakery,Chennai,13.076327,80.268889,4.5,881,2024-05-16,True,25
+REST_007,"Garcia, Cook and Little Bites",Beverages,Surat,21.15092,72.843194,3.5,227,2020-10-22,True,14
+REST_008,Roy-Jones Eatery,Italian,Lucknow,26.830691,80.936485,1.4,979,2020-01-31,False,23
+REST_009,Freeman and Sons Cafe,South Indian,Hyderabad,17.390063,78.474171,1.6,845,2021-12-22,True,20
+REST_010,Thomas-Bailey Cafe,Healthy,Bangalore,12.979211,77.6055,4.1,318,2022-11-29,True,8
+REST_011,Bird-Cook Bites,Beverages,Kolkata,22.591607,88.346786,3.9,829,2019-08-29,True,11
+REST_012,Reeves-Jordan Foods,Continental,Hyderabad,17.375307,78.502611,2.1,884,2021-07-10,True,21
+REST_013,"Crawford, Stein and Thomas Foods",Beverages,Mumbai,19.095045,72.888947,4.9,310,2024-09-28,True,34
+REST_014,"Turner, Wilson and Rodriguez Eatery",North Indian,Kolkata,22.590067,88.375885,1.4,446,2024-10-17,True,16
+REST_015,"Henderson, Reynolds and Martinez Bites",Fast Food,Lucknow,26.85011,80.965621,3.7,676,2019-01-23,True,14
+REST_016,Moore Inc Eatery,North Indian,Bhopal,23.242529,77.41227,3.1,793,2024-09-21,True,19
+REST_017,Frazier-Ochoa Bites,Italian,Pune,18.510027,73.842425,2.3,542,2021-04-04,True,14
+REST_018,Malone-Hayes Kitchen,Italian,Bangalore,12.964291,77.61043,1.2,1188,2020-12-08,True,16
+REST_019,Raymond LLC Kitchen,Seafood,Kolkata,22.575419,88.373703,2.6,394,2023-07-12,True,18
+REST_020,"Lopez, Casey and Schmitt Foods",Beverages,Hyderabad,17.388198,78.472438,1.4,189,2023-11-13,True,11
+REST_021,"Reed, Martin and Todd Eatery",North Indian,Bhopal,23.276899,77.39475,2.0,1063,2019-12-16,True,26
+REST_022,"Walker, Morrow and Holland Foods",Japanese,Coimbatore,11.004963,76.963673,1.8,474,2022-04-21,True,10
+REST_023,Mcdaniel-Jackson Cafe,North Indian,Chandigarh,30.715868,76.768966,1.5,267,2023-11-27,False,10
+REST_024,"Liu, Strong and Kelly Cafe",North Indian,Jaipur,26.903755,75.782102,1.5,694,2022-11-14,False,20
+REST_025,Martinez PLC Cafe,Seafood,Bangalore,12.985888,77.606622,3.6,1045,2024-07-14,True,25
+REST_026,Rogers LLC Foods,Bakery,Kolkata,22.570316,88.37963,1.2,166,2023-12-03,True,19
+REST_027,Brown-Barrett Kitchen,Street Food,Surat,21.176671,72.823803,3.3,457,2019-04-05,True,17
+REST_028,"Harris, Garcia and Brown Kitchen",Street Food,Ahmedabad,23.017374,72.565163,3.8,1003,2019-02-15,True,16
+REST_029,Wells Ltd Eatery,Healthy,Bhopal,23.251257,77.42847,1.0,975,2022-11-28,True,14
+REST_030,Castillo Inc Cafe,Continental,Mumbai,19.072933,72.885983,1.6,197,2022-07-21,True,28
+REST_031,Finley LLC Kitchen,Seafood,Ahmedabad,23.042469,72.579583,4.9,369,2024-12-12,True,21
+REST_032,Navarro-Wilson Foods,Chinese,Jaipur,26.903452,75.768336,3.9,340,2021-07-21,True,15
+REST_033,"Hill, Ross and Patrick Foods",Beverages,Jaipur,26.913635,75.779047,1.3,656,2020-04-05,False,13
+REST_034,Anderson and Sons Eatery,Continental,Jaipur,26.931838,75.770794,3.9,1133,2023-01-06,True,23
+REST_035,King-Camacho Foods,Seafood,Surat,21.162518,72.822554,1.9,423,2022-01-05,True,28
+REST_036,"Hatfield, Cardenas and Garcia Eatery",Fast Food,Kolkata,22.57449,88.370254,1.7,302,2020-04-30,True,27
+REST_037,"Taylor, Garrison and Allen Cafe",Chinese,Jaipur,26.919822,75.771876,4.3,861,2021-11-24,True,12
+REST_038,"Durham, Ellis and Phillips Bites",Beverages,Delhi,28.686464,77.114199,1.9,863,2023-11-29,False,15
+REST_039,"Doyle, Peters and Baker Eatery",Seafood,Chennai,13.088818,80.262136,2.6,916,2022-10-10,True,14
+REST_040,"Robles, Marshall and Garcia Kitchen",Continental,Kolkata,22.577648,88.355189,2.0,514,2019-05-22,True,16
+REST_041,Lopez-Schmitt Kitchen,Fast Food,Hyderabad,17.398277,78.49576,1.0,283,2023-04-08,True,26
+REST_042,Morrison-Collins Eatery,Japanese,Bhopal,23.264037,77.4121,1.6,432,2023-10-09,True,32
+REST_043,Graham-Murray Bites,Healthy,Indore,22.721673,75.857322,3.9,350,2020-06-09,True,21
+REST_044,Merritt-Banks Eatery,North Indian,Chandigarh,30.724662,76.760415,4.6,1049,2019-09-21,True,13
+REST_045,"Leach, Gonzalez and Wilkerson Foods",Street Food,Chennai,13.086081,80.270738,4.4,420,2023-11-16,True,18
+REST_046,Douglas-Lopez Foods,Korean,Indore,22.720611,75.87281,4.3,164,2024-04-10,True,35
+REST_047,Daniels-Lopez Bites,North Indian,Kolkata,22.571847,88.350471,4.7,175,2019-03-29,True,19
+REST_048,"Williams, Carter and Garcia Kitchen",Street Food,Jaipur,26.892964,75.771546,4.2,979,2020-01-06,True,16
+REST_049,"Torres, Jensen and Kaufman Foods",Street Food,Pune,18.529269,73.873288,3.5,169,2019-11-01,True,16
+REST_050,Huynh-Reyes Cafe,North Indian,Surat,21.153874,72.834226,1.1,541,2021-06-11,True,21
+REST_051,Garcia-Bryant Bites,Healthy,Chandigarh,30.744284,76.779452,1.4,725,2019-09-07,True,12
+REST_052,Miller-Johnson Foods,Beverages,Bangalore,12.962498,77.579861,3.3,782,2020-06-08,True,14
+REST_053,Jones and Sons Eatery,Seafood,Pune,18.527822,73.865794,3.4,729,2023-05-14,True,27
+REST_054,Jones PLC Cafe,Healthy,Chandigarh,30.74636,76.77835,3.1,735,2020-08-15,True,21
+REST_055,"Stewart, Morris and Prince Kitchen",Korean,Delhi,28.708192,77.084496,2.4,1018,2024-07-15,True,19
+REST_056,"Kelly, Nunez and Alexander Bites",Italian,Pune,18.510697,73.871427,3.5,986,2020-10-10,True,27
+REST_057,Smith Inc Eatery,Fast Food,Coimbatore,11.011362,76.946833,1.9,1145,2020-05-30,True,13
+REST_058,Garrett-Sanders Bites,Beverages,Coimbatore,10.997134,76.954902,1.2,1195,2020-09-22,True,15
+REST_059,Wise-Mason Eatery,Italian,Bangalore,12.979037,77.601528,2.5,286,2021-12-25,True,20
+REST_060,Hebert LLC Bites,Continental,Surat,21.189435,72.834737,1.7,963,2021-12-04,True,20
+REST_061,"Cardenas, Phelps and Singleton Bites",Desserts,Ahmedabad,23.032994,72.58255,4.5,463,2024-05-13,True,9
+REST_062,Carter Ltd Bites,Bakery,Delhi,28.688333,77.107058,4.8,611,2020-06-19,True,15
+REST_063,Blankenship-Lopez Bites,Fast Food,Jaipur,26.901272,75.785272,4.7,233,2019-07-04,True,17
+REST_064,Goodman and Sons Bites,Healthy,Chennai,13.073555,80.282788,4.3,345,2019-12-07,True,21
+REST_065,Fox-Sanders Kitchen,Korean,Jaipur,26.913557,75.770123,2.4,934,2022-09-16,True,20
+REST_066,Andrade-Sloan Cafe,Korean,Hyderabad,17.393561,78.470603,3.3,358,2019-07-17,True,17
+REST_067,Harvey Group Kitchen,Mughlai,Mumbai,19.093446,72.882085,1.2,1151,2022-11-01,False,8
+REST_068,"Stanley, Garcia and Berry Cafe",Desserts,Chennai,13.091259,80.286046,1.8,151,2023-10-31,True,18
+REST_069,"Burns, Wright and Crawford Bites",Bakery,Coimbatore,11.033166,76.940785,1.9,234,2022-07-01,True,18
+REST_070,Gonzalez-Tanner Kitchen,Fast Food,Surat,21.166589,72.827774,3.0,769,2024-06-22,True,50
+REST_071,"Patton, Kirk and Morris Eatery",Beverages,Delhi,28.711812,77.097011,2.2,313,2024-01-12,True,16
+REST_072,Thompson-Lawson Eatery,Seafood,Lucknow,26.866135,80.961261,3.5,482,2023-05-24,True,20
+REST_073,Kane and Sons Bites,Desserts,Pune,18.508139,73.83804,3.9,1035,2021-06-16,True,30
+REST_074,Lozano Inc Kitchen,Desserts,Coimbatore,11.018063,76.972398,4.7,616,2022-02-03,True,25
+REST_075,"Jefferson, Harvey and Rangel Eatery",North Indian,Coimbatore,11.005384,76.937722,4.6,214,2024-07-15,True,33
+REST_076,Brown-Lopez Bites,Healthy,Jaipur,26.915336,75.803209,4.0,1190,2022-03-20,True,9
+REST_077,Miller-Martin Kitchen,Italian,Jaipur,26.898224,75.792812,4.7,1089,2022-03-04,True,11
+REST_078,Adams PLC Kitchen,Desserts,Indore,22.702989,75.844241,3.3,583,2020-12-03,True,14
+REST_079,Parker Ltd Kitchen,Desserts,Coimbatore,11.013123,76.965703,1.2,1120,2022-08-17,False,9
+REST_080,Kelly and Sons Kitchen,Healthy,Surat,21.187102,72.840626,2.9,844,2020-11-10,True,18
+REST_081,Kline Ltd Foods,Korean,Mumbai,19.088666,72.886472,3.1,562,2021-09-30,True,12
+REST_082,Green-Adams Kitchen,Mughlai,Surat,21.183306,72.832392,2.6,903,2023-06-06,True,35
+REST_083,Ortiz and Sons Cafe,South Indian,Hyderabad,17.392547,78.503209,3.0,967,2023-05-23,True,12
+REST_084,Richmond Inc Kitchen,South Indian,Hyderabad,17.366342,78.471064,3.5,188,2021-09-10,True,15
+REST_085,"Peterson, Wright and Becker Cafe",Beverages,Pune,18.523112,73.849288,2.9,376,2024-12-27,True,26
+REST_086,Rose Inc Foods,Desserts,Ahmedabad,23.005735,72.578534,2.9,993,2020-04-26,True,10
+REST_087,"Le, Shea and Phillips Cafe",Desserts,Jaipur,26.927405,75.806403,4.0,190,2024-06-04,True,9
+REST_088,"Cruz, Watson and Perry Eatery",Korean,Bhopal,23.246413,77.394213,3.9,945,2019-11-11,True,19
+REST_089,Blackwell and Sons Eatery,South Indian,Jaipur,26.930426,75.771012,2.3,924,2019-10-13,True,20
+REST_090,Acevedo PLC Eatery,Fast Food,Kolkata,22.588737,88.34508,3.6,241,2023-10-12,True,25
+REST_091,"Moore, Perkins and Schroeder Eatery",Continental,Jaipur,26.932078,75.768204,1.4,258,2023-08-19,True,23
+REST_092,"Mack, Collins and Delgado Kitchen",Mughlai,Lucknow,26.832174,80.965358,1.0,1103,2024-02-15,True,20
+REST_093,Patel Inc Eatery,North Indian,Kolkata,22.574507,88.370631,1.2,830,2019-04-07,True,13
+REST_094,"Schroeder, Rodriguez and Hays Kitchen",Bakery,Kolkata,22.562637,88.345795,1.8,1154,2020-04-30,False,20
+REST_095,Baker-Mullen Eatery,Korean,Lucknow,26.84571,80.941252,4.9,602,2023-10-10,True,20
+REST_096,"Stone, Johnson and Lee Foods",Japanese,Coimbatore,11.002256,76.971401,2.3,321,2024-01-05,True,13
+REST_097,Brooks-Cook Bites,Beverages,Ahmedabad,23.012115,72.552983,2.1,636,2020-01-11,True,40
+REST_098,Arroyo-Barnes Foods,Bakery,Coimbatore,11.001371,76.945945,1.5,649,2023-05-17,True,22
+REST_099,Owens-Thomas Foods,Beverages,Delhi,28.705459,77.091185,3.5,408,2019-10-24,True,11
+REST_100,"Guzman, Garcia and Smith Eatery",Seafood,Jaipur,26.931379,75.780153,1.3,608,2020-11-13,True,25
+REST_101,"Chen, Johnson and Rivera Bites",Seafood,Mumbai,19.063683,72.889631,2.9,639,2022-08-07,True,27
+REST_102,Reid Ltd Cafe,North Indian,Jaipur,26.900288,75.775353,3.9,317,2022-02-01,True,21
+REST_103,Collier-Brown Eatery,Continental,Hyderabad,17.404805,78.500311,3.2,1019,2019-07-18,True,16
+REST_104,Cunningham-Myers Kitchen,Street Food,Kolkata,22.556195,88.36899,5.0,173,2020-04-09,False,13
+REST_105,"Taylor, Ellis and Glover Bites",Continental,Chandigarh,30.751592,76.797302,4.7,1094,2019-01-04,True,17
+REST_106,Ramirez PLC Bites,Beverages,Indore,22.71157,75.853158,3.6,937,2019-02-16,True,21
+REST_107,Allen-Morales Kitchen,North Indian,Lucknow,26.826847,80.928484,4.7,875,2021-07-23,True,18
+REST_108,Wolf-Williams Cafe,North Indian,Kolkata,22.556096,88.348253,4.5,562,2021-09-27,True,34
+REST_109,"Davis, Roberts and Perkins Bites",Beverages,Bangalore,12.977504,77.600711,1.8,702,2024-06-02,True,24
+REST_110,Cooper Group Cafe,Continental,Chandigarh,30.715212,76.79166,2.0,508,2023-03-30,True,12
+REST_111,"Graves, Richardson and Kennedy Eatery",Japanese,Chennai,13.081892,80.257705,2.6,1106,2022-09-10,True,11
+REST_112,"Adams, Escobar and Mills Foods",Beverages,Mumbai,19.05808,72.890735,1.2,861,2022-10-29,False,22
+REST_113,Allen-Hamilton Cafe,Desserts,Pune,18.50186,73.866937,2.8,686,2021-06-15,True,16
+REST_114,Reynolds PLC Foods,Bakery,Kolkata,22.585158,88.371531,1.4,975,2021-03-18,True,25
+REST_115,Palmer LLC Bites,Fast Food,Bhopal,23.276726,77.413057,2.2,875,2023-05-11,True,22
+REST_116,"Morris, Roberts and Barton Eatery",Fast Food,Coimbatore,11.017728,76.955774,4.0,345,2024-12-17,True,17
+REST_117,Johnson LLC Eatery,Fast Food,Surat,21.158152,72.823818,1.8,673,2023-09-21,True,12
+REST_118,"Wilson, Thompson and Horton Kitchen",Desserts,Pune,18.501987,73.860669,4.5,601,2021-06-12,True,9
+REST_119,"Nunez, Morris and Shaw Foods",Bakery,Mumbai,19.079556,72.861231,3.8,557,2021-12-11,True,20
+REST_120,"Johns, Khan and Smith Eatery",Beverages,Delhi,28.709017,77.10554,4.8,1153,2020-05-23,False,10
+REST_121,"Johnson, Ramirez and Santana Eatery",South Indian,Chandigarh,30.731298,76.791458,3.4,743,2020-10-08,True,12
+REST_122,Davis-Wilson Bites,Italian,Chandigarh,30.742826,76.791458,3.8,787,2023-08-08,True,19
+REST_123,"Jones, Turner and West Foods",Chinese,Indore,22.71494,75.863752,2.8,922,2019-03-20,True,18
+REST_124,"Park, Lin and Bautista Eatery",South Indian,Surat,21.153327,72.848449,2.1,1034,2022-01-15,True,11
+REST_125,"Gray, Stephens and Brown Bites",Italian,Kolkata,22.553612,88.363321,1.7,377,2020-03-08,True,29
+REST_126,Crawford and Sons Foods,Mughlai,Mumbai,19.086228,72.858489,2.5,936,2024-09-18,True,28
+REST_127,Whitaker PLC Bites,Chinese,Surat,21.159901,72.849014,4.2,311,2022-01-01,True,22
+REST_128,"Wilson, Orozco and Santiago Kitchen",Continental,Lucknow,26.83319,80.929762,3.4,241,2021-09-01,True,22
+REST_129,Moore and Sons Foods,Continental,Jaipur,26.918966,75.791712,5.0,1145,2022-03-19,True,22
+REST_130,Espinoza-Mata Bites,Desserts,Surat,21.157333,72.812745,2.6,491,2021-01-23,False,27
+REST_131,"Rios, Foster and Carey Bites",Continental,Lucknow,26.853905,80.929939,4.1,283,2021-12-05,True,24
+REST_132,Ramirez-Cole Eatery,South Indian,Mumbai,19.084637,72.882781,4.3,175,2020-02-27,True,12
+REST_133,Davis-Hardy Eatery,Seafood,Delhi,28.717954,77.106687,1.7,418,2021-10-18,True,16
+REST_134,"Butler, Diaz and Patel Eatery",Bakery,Delhi,28.704397,77.119918,1.5,876,2020-01-29,True,47
+REST_135,"Barron, Rodriguez and Myers Eatery",Beverages,Surat,21.187593,72.846335,3.7,197,2021-08-26,True,8
+REST_136,"Cross, Smith and Salazar Bites",Korean,Kolkata,22.589979,88.346922,2.4,197,2021-06-16,True,14
+REST_137,"Hudson, Powell and Friedman Cafe",Bakery,Pune,18.51134,73.849531,2.2,417,2023-06-15,True,29
+REST_138,"Peterson, Finley and Vargas Foods",South Indian,Bangalore,12.977897,77.597498,1.2,1132,2021-05-17,True,13
+REST_139,Pacheco-Nelson Kitchen,Desserts,Bhopal,23.256174,77.409097,3.8,1136,2023-01-12,True,24
+REST_140,Hill PLC Cafe,Chinese,Indore,22.737584,75.871841,3.9,208,2019-03-16,True,18
+REST_141,Johnson-Cortez Cafe,Korean,Indore,22.73493,75.869294,3.5,423,2021-01-19,True,13
+REST_142,Atkins-Thompson Cafe,Italian,Bangalore,12.965164,77.579561,2.6,380,2023-02-05,True,7
+REST_143,Raymond-Young Foods,Italian,Mumbai,19.061432,72.876707,4.5,1061,2022-10-14,False,19
+REST_144,Adams Inc Bites,Seafood,Pune,18.515628,73.870145,4.8,579,2020-01-16,True,12
+REST_145,Harris Ltd Kitchen,Italian,Indore,22.724706,75.855688,1.5,386,2021-10-02,False,17
+REST_146,Clark-Suarez Eatery,Seafood,Chandigarh,30.727604,76.78783,3.0,234,2024-09-04,True,22
+REST_147,Stevens-Neal Bites,Street Food,Coimbatore,11.006001,76.951284,1.7,1011,2021-12-15,True,26
+REST_148,Rivera-Wood Bites,Healthy,Bangalore,12.983504,77.597584,1.8,915,2023-04-25,True,14
+REST_149,"Phillips, Estrada and Moore Cafe",Healthy,Indore,22.708433,75.856616,2.9,582,2024-03-05,False,13
+REST_150,Robinson-Shah Cafe,Mughlai,Coimbatore,11.010123,76.969075,1.5,458,2019-02-20,True,10
+REST_151,Mcclure PLC Kitchen,Desserts,Kolkata,22.563508,88.366159,1.6,768,2022-07-12,True,27
+REST_152,Smith-Sanders Kitchen,South Indian,Chandigarh,30.736534,76.784767,3.8,486,2020-06-23,True,44
+REST_153,Cook LLC Foods,Mughlai,Chandigarh,30.734516,76.799315,4.5,832,2020-03-22,True,28
+REST_154,"Holden, Martinez and Clark Bites",Beverages,Bhopal,23.249223,77.410528,4.5,343,2019-11-09,True,31
+REST_155,Thomas-Washington Kitchen,South Indian,Indore,22.709185,75.846533,3.3,175,2021-05-13,True,13
+REST_156,Macias and Sons Eatery,Continental,Coimbatore,11.035755,76.960783,5.0,198,2020-09-09,True,22
+REST_157,Henderson-Newton Eatery,Korean,Bangalore,12.985938,77.614262,2.3,294,2023-03-10,True,25
+REST_158,Walker-Cooper Bites,South Indian,Lucknow,26.835927,80.950034,1.3,1089,2021-09-06,True,5
+REST_159,Barker-Smith Bites,Fast Food,Chandigarh,30.747176,76.766227,3.9,1066,2023-05-09,True,11
+REST_160,Donaldson Inc Kitchen,Mughlai,Surat,21.184706,72.841459,1.4,1181,2023-10-27,True,36
+REST_161,Johnson Inc Eatery,Seafood,Coimbatore,11.036355,76.958909,1.1,1077,2021-08-25,True,9
+REST_162,"Vaughan, Burton and Curry Foods",Italian,Kolkata,22.584118,88.352864,2.0,196,2024-12-08,True,33
+REST_163,"Gardner, Robinson and Reynolds Bites",Mughlai,Surat,21.164621,72.818307,4.4,1009,2020-04-29,True,9
+REST_164,"Reynolds, Holloway and Meza Bites",Fast Food,Ahmedabad,23.023693,72.571903,1.1,353,2022-09-04,True,11
+REST_165,Walker LLC Bites,Street Food,Bangalore,12.954291,77.612727,4.2,1199,2021-09-18,True,22
+REST_166,"Fisher, Watson and Rogers Kitchen",Healthy,Bangalore,12.961577,77.595369,1.2,512,2023-07-24,True,18
+REST_167,"Wheeler, Fleming and Golden Bites",South Indian,Surat,21.164474,72.813056,4.9,516,2019-12-24,True,15
+REST_168,"Rodriguez, Chambers and Bennett Kitchen",Korean,Kolkata,22.566114,88.372973,2.0,699,2022-07-08,False,35
+REST_169,"Moreno, Allen and Kelly Kitchen",North Indian,Kolkata,22.577409,88.358999,4.2,281,2024-04-16,False,10
+REST_170,Parks Ltd Foods,North Indian,Jaipur,26.904949,75.806765,2.1,197,2020-08-11,True,17
+REST_171,Cherry Group Bites,Seafood,Ahmedabad,23.038913,72.586649,3.5,815,2020-05-24,True,23
+REST_172,"May, Hamilton and Henry Kitchen",Desserts,Lucknow,26.859089,80.938895,3.3,1192,2023-04-18,True,20
+REST_173,"Howe, Ball and Mcdonald Bites",Chinese,Bhopal,23.275966,77.393954,4.3,1149,2023-07-14,True,13
+REST_174,Watson PLC Foods,Italian,Hyderabad,17.379559,78.48332,3.7,901,2020-11-22,True,14
+REST_175,"Smith, Hunter and Murray Cafe",Street Food,Coimbatore,11.018345,76.955225,2.3,678,2022-08-15,True,26
+REST_176,Clark-Hutchinson Foods,Street Food,Chandigarh,30.747095,76.792148,4.3,749,2020-06-03,True,27
+REST_177,"Melendez, Mitchell and Robles Eatery",Seafood,Bhopal,23.246053,77.398535,1.2,803,2021-12-07,True,21
+REST_178,Woodward Ltd Kitchen,Street Food,Chandigarh,30.749286,76.766432,1.6,1075,2024-04-19,True,12
+REST_179,Fernandez-Allen Kitchen,Japanese,Bangalore,12.957391,77.608405,4.4,204,2020-03-21,True,14
+REST_180,Ramos-Blair Bites,Japanese,Indore,22.733677,75.876877,2.4,223,2022-11-18,True,18
+REST_181,"Moore, Davis and Berger Cafe",Bakery,Jaipur,26.920138,75.784887,3.6,273,2020-02-15,True,19
+REST_182,Grant Inc Foods,Chinese,Coimbatore,11.027314,76.965135,1.4,570,2020-10-15,True,23
+REST_183,Glover-Lawson Eatery,Italian,Kolkata,22.566706,88.361605,2.4,745,2022-04-13,True,16
+REST_184,"Brown, Scott and Ellis Foods",North Indian,Chandigarh,30.722954,76.795188,1.9,177,2021-03-05,True,26
+REST_185,"Gonzales, Kelly and Hamilton Bites",Fast Food,Bhopal,23.240398,77.420708,4.3,999,2020-09-09,True,26
+REST_186,"Deleon, Allen and Harrison Cafe",Bakery,Ahmedabad,23.029666,72.562792,2.3,1159,2023-11-28,True,32
+REST_187,Green-Bryant Cafe,Desserts,Coimbatore,11.008991,76.969467,2.3,994,2023-10-24,True,18
+REST_188,Conner-Villegas Eatery,Desserts,Surat,21.154515,72.836165,3.5,306,2020-08-24,True,21
+REST_189,Terry-Herrera Foods,South Indian,Bhopal,23.270941,77.412888,3.0,930,2019-11-18,True,17
+REST_190,Pena-Scott Eatery,Korean,Kolkata,22.567021,88.370184,3.1,425,2022-04-11,True,12
+REST_191,Harris Group Foods,Italian,Chennai,13.069167,80.285531,3.7,194,2023-08-10,True,43
+REST_192,Black-Hale Cafe,Street Food,Surat,21.188294,72.829163,2.4,973,2022-06-09,True,30
+REST_193,Dominguez and Sons Bites,Mughlai,Bangalore,12.975423,77.583341,2.2,505,2024-03-18,True,25
+REST_194,Benson Group Kitchen,Seafood,Kolkata,22.573811,88.349803,2.0,296,2022-09-17,False,18
+REST_195,Martinez Inc Cafe,North Indian,Bhopal,23.259509,77.429249,2.3,179,2024-12-19,True,12
+REST_196,Ross-Lewis Foods,Italian,Pune,18.510131,73.863086,3.2,166,2021-08-18,True,27
+REST_197,"Jones, Martin and Bautista Bites",North Indian,Coimbatore,11.029791,76.965931,1.3,583,2021-12-03,False,17
+REST_198,Jones-Bell Cafe,Korean,Lucknow,26.841689,80.96315,4.8,724,2020-06-30,True,21
+REST_199,Holt Inc Eatery,North Indian,Bhopal,23.267434,77.409062,3.2,737,2020-04-27,False,14
+REST_200,Daniels-Garcia Eatery,Continental,Delhi,28.715044,77.107322,2.4,1173,2022-03-25,True,20
+REST_201,"Welch, Reed and Fuller Bites",Fast Food,Jaipur,26.902335,75.803778,4.1,1167,2024-02-22,True,14
+REST_202,"Burns, Wilson and Murray Cafe",North Indian,Kolkata,22.586165,88.378597,4.2,292,2023-11-21,True,14
+REST_203,"Warren, Drake and Thomas Cafe",Continental,Bangalore,12.959765,77.58144,4.0,726,2019-10-18,True,20
+REST_204,Fields Group Bites,Healthy,Surat,21.187072,72.817121,4.0,606,2022-10-25,True,9
+REST_205,"Campbell, Little and Jones Cafe",Chinese,Chandigarh,30.748864,76.784232,1.4,479,2024-11-28,True,9
+REST_206,Murphy-Thomas Foods,Beverages,Lucknow,26.83331,80.937444,2.7,196,2024-09-20,True,13
+REST_207,Wade Ltd Cafe,South Indian,Bhopal,23.249848,77.393494,2.0,1096,2024-08-18,False,16
+REST_208,Sullivan-Rubio Eatery,Mughlai,Mumbai,19.07088,72.88857,4.3,627,2024-04-29,True,26
+REST_209,"Porter, Meyers and King Eatery",South Indian,Indore,22.719401,75.870728,2.1,589,2023-08-09,True,17
+REST_210,Robinson LLC Foods,Continental,Jaipur,26.893248,75.770301,2.5,641,2022-02-08,True,18
+REST_211,"Choi, Hicks and Smith Eatery",North Indian,Ahmedabad,23.007878,72.560263,2.3,493,2020-04-18,False,16
+REST_212,Orr Ltd Bites,Chinese,Lucknow,26.849131,80.958381,1.9,281,2024-04-19,True,21
+REST_213,Johnson PLC Eatery,Continental,Bhopal,23.242707,77.425335,1.9,634,2022-05-30,True,12
+REST_214,"Tate, Bailey and Johnson Cafe",Italian,Chandigarh,30.735204,76.769797,4.1,1132,2023-10-01,True,17
+REST_215,Quinn-Powell Eatery,Korean,Indore,22.737504,75.850396,2.9,593,2021-04-05,True,21
+REST_216,Wade PLC Cafe,Fast Food,Bhopal,23.247961,77.425035,4.9,992,2023-12-25,True,20
+REST_217,"Daugherty, Nichols and Lawson Kitchen",Healthy,Chennai,13.072478,80.268217,3.9,271,2022-02-05,True,18
+REST_218,"Martinez, Weeks and Curry Kitchen",Chinese,Coimbatore,10.998762,76.952799,4.2,664,2023-08-09,True,18
+REST_219,"Shelton, Green and Rowe Bites",Korean,Mumbai,19.07505,72.893083,4.2,803,2022-05-11,True,22
+REST_220,Rivera and Sons Bites,Japanese,Kolkata,22.569727,88.376568,2.0,698,2023-10-24,True,44
+REST_221,Lawrence Inc Bites,Desserts,Chennai,13.072782,80.27184,1.2,532,2019-03-17,True,12
+REST_222,Matthews-Wright Bites,Mughlai,Bhopal,23.26568,77.406073,2.6,766,2022-06-21,True,45
+REST_223,Thompson Inc Cafe,Healthy,Bhopal,23.255425,77.419099,2.0,528,2021-10-27,True,12
+REST_224,Fitzgerald PLC Bites,Beverages,Indore,22.714537,75.861018,3.3,179,2020-03-21,True,7
+REST_225,Singleton Ltd Eatery,Seafood,Hyderabad,17.400034,78.482353,3.0,383,2020-01-23,True,14
+REST_226,"Rogers, Johnson and Adams Foods",Fast Food,Surat,21.161348,72.828576,2.9,670,2024-10-10,True,21
+REST_227,Buckley Group Kitchen,Seafood,Chandigarh,30.727988,76.763441,1.4,738,2021-03-05,True,40
+REST_228,Diaz-Wilson Bites,Continental,Indore,22.700019,75.864568,3.5,1096,2024-07-05,True,12
+REST_229,"Buck, Miller and Patel Kitchen",Desserts,Lucknow,26.847892,80.957684,1.6,613,2020-03-07,True,22
+REST_230,Bowers Inc Foods,Desserts,Coimbatore,11.022135,76.946335,4.8,264,2023-03-25,True,10
+REST_231,"Velazquez, Coffey and Smith Eatery",North Indian,Delhi,28.700069,77.120188,3.1,901,2022-07-01,True,39
+REST_232,"Price, Smith and Todd Kitchen",Bakery,Pune,18.524549,73.846118,1.1,215,2020-07-24,True,30
+REST_233,Allen-Simpson Foods,Mughlai,Pune,18.538131,73.856059,2.0,780,2019-09-24,True,14
+REST_234,"Snyder, Graham and Clark Bites",Seafood,Surat,21.161752,72.827084,3.3,174,2022-02-11,False,32
+REST_235,Cole-Jackson Eatery,Mughlai,Bhopal,23.259883,77.405584,3.3,383,2022-06-29,True,17
+REST_236,Curtis Group Cafe,Desserts,Indore,22.716506,75.843206,3.7,558,2024-04-12,True,31
+REST_237,"Smith, Roy and Hunt Bites",South Indian,Hyderabad,17.372594,78.471584,4.0,584,2019-03-29,True,18
+REST_238,"Griffin, Lucas and Wheeler Eatery",Beverages,Jaipur,26.924265,75.796289,3.5,1165,2022-10-06,True,18
+REST_239,"Jackson, Johnson and Gilbert Eatery",Street Food,Bangalore,12.991312,77.603889,3.3,746,2022-12-20,True,14
+REST_240,Ewing and Sons Foods,Seafood,Surat,21.17112,72.818121,2.7,844,2019-04-18,True,24
+REST_241,Juarez LLC Eatery,Street Food,Surat,21.184605,72.822475,1.0,183,2021-01-12,True,19
+REST_242,Perez-Shaw Cafe,Desserts,Hyderabad,17.379321,78.49653,2.5,344,2021-04-07,True,22
+REST_243,Alexander PLC Bites,Mughlai,Surat,21.168198,72.822812,1.9,572,2020-03-01,True,9
+REST_244,Poole-Wagner Cafe,Korean,Kolkata,22.571885,88.357731,3.5,323,2024-06-04,True,31
+REST_245,Wang-Moreno Cafe,Chinese,Hyderabad,17.401352,78.500368,2.0,243,2020-02-19,True,35
+REST_246,Mcgrath-Lee Cafe,Chinese,Bangalore,12.954277,77.585474,2.9,827,2023-06-19,True,19
+REST_247,"Harris, Holland and Glover Eatery",Desserts,Jaipur,26.917567,75.801325,2.1,651,2021-11-04,True,43
+REST_248,"Lopez, Garcia and Stevens Cafe",Korean,Jaipur,26.929412,75.798894,3.2,628,2019-03-01,True,38
+REST_249,Mendoza and Sons Bites,Italian,Hyderabad,17.398323,78.472815,3.1,666,2020-04-09,True,24
+REST_250,Clark-Madden Eatery,Bakery,Indore,22.736857,75.838683,4.9,517,2023-05-16,True,32
